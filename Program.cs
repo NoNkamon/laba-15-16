@@ -20,6 +20,31 @@ namespace ConsoleQuizApp
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.Title = "МЯСНОЙ МАРАФОН: ULTIMATE EDITION";
+            Console.WriteLine("==========================================");
+            Console.WriteLine("  ВИКТОРИНА: МЯСО!!!! ");
+            Console.WriteLine("==========================================");
+            Console.WriteLine("Выполнили курсанты: Нестеренко, Шелепов, Тареев, Соловьев!!");
+            Console.WriteLine("Гр 3832.9");
+            var warmup = new List<Question> {
+                new Question("Проверка на дурака. Ты готов?", new[] {"Да", "Нет", "Я камень", "Мяу"}, 0)
+            };
+            RunRound(warmup);
+            Console.WriteLine("\nЗагрузка огромной базы вопросов...");
+            System.Threading.Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nВНИМАНИЕ! ВОПРОСОВ ОЧЕНЬ МНОГО.");
+            Console.WriteLine("Условия обновлены:  У ТЕБЯ 7 ЖИЗНЕЙ.");
+            Console.ResetColor();
+
+            Console.WriteLine("\nНажми любую кнопку, чтобы начать АД...");
+            Console.ReadKey();
+            Console.Clear();
+            RunSurvivalMode();
+
+            Console.WriteLine("\nНажмите Enter, чтобы закрыть программу.");
+            Console.ReadLine();
         }
         static void RunSurvivalMode()
         {
@@ -103,6 +128,12 @@ namespace ConsoleQuizApp
                 Console.WriteLine($"Введите число от 1 до {max}!");
                 Console.ResetColor();
             }
+        }
+        static List<Question> GetHugeMixedPool()
+        {
+            return new List<Question>
+            {
+            };
         }
     }
 }
